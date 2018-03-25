@@ -1,0 +1,40 @@
+<section class="home">
+  <div class="container">
+    <div class="row recipes" *ngIf="recipes && recipes.length">
+      <div *ngFor="let recipe of recipes" class="col-xs-12 col-sm-3 recipe-block">
+        <div class="recipe">
+          <h4 class="name">{{ recipe.name }}</h4>
+          <p class="description">{{ recipe.description }}</p>
+         <div class="icons">
+           <a [routerLink]="['/edit', recipe._id]">{{ id }} <i class="fa fa-pencil" aria-hidden="true"></i></a>
+           <i class="fa fa-book" aria-hidden="true" data-toggle="modal" [attr.data-target]="'#' + recipe._id"></i>
+         </div>
+
+          <!-- Modal for previous versions of recipe -->
+          <div id="{{ recipe._id }}" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+              <!-- Modal content-->
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  <h4 class="modal-title">Previous versions of recipe:</h4>
+                </div>
+                <div class="modal-body">
+                  <!-- If versions don't exist -->
+                  <p *ngIf="!recipe.versions.length">Sorry, but this recipe hasn't previous versions.</p>
+                  <!-- If versions exist -->
+                  <div *ngFor="let version of recipe.versions" class="version">
+                    <h4 *ngIf="version">{{ version.name }}</h4>
+                    <p *ngIf="version">{{ version.description }}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </div> <!-- container -->
+</section>
