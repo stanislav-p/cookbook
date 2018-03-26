@@ -1,4 +1,5 @@
 @import '../../../assets/styles/variables';
+@import '../../../assets/styles/mixins';
 
 .home {
   .recipes {
@@ -35,9 +36,16 @@
 
         .fa {
           color: $secondary-color;
+          cursor: pointer;
+          opacity: 0.65;
+          @include transition(ease, 0.1s);
 
-          &.fa-book {
-            cursor: pointer;
+          &:hover {
+            opacity: 1;
+          }
+
+          &.fa-trash {
+            color: rgb(180, 0, 0);
           }
         }
       }

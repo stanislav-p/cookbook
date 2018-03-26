@@ -73,5 +73,18 @@ module.exports = function(router) {
     });
 
 
+    router.delete('/recipes/:id', function(req, res) {
+        var id = req.params.id;
+
+        Recipe.findByIdAndRemove(id, function(err) {
+            if (err) {
+                res.json({ success: false, message: 'Error' });
+                return;
+            }
+            res.json({ success: true, message: 'Deleted' });
+        });
+    });
+
+
     return router;
 };

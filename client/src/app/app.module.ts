@@ -9,15 +9,16 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { AddComponent } from './components/add/add.component';
 import { EditComponent } from './components/edit/edit.component';
+import { HeaderComponent } from './components/header/header.component';
 
 
 import { AddService } from './services/add.service';
 import { EditService } from './services/edit.service';
 import { GetAllService } from './services/getall.service';
+import { DeleteService } from './services/delete.service';
 import { ValidateService } from './services/validate.service';
 
 import { FlashMessagesModule } from 'angular2-flash-messages';
-import { HeaderComponent } from './components/header/header.component';
 
 
 @NgModule({
@@ -35,7 +36,7 @@ import { HeaderComponent } from './components/header/header.component';
     HttpModule,
     FlashMessagesModule.forRoot()
   ],
-  providers: [AddService, EditService, GetAllService, ValidateService],
+  providers: [AddService, EditService, GetAllService, DeleteService, ValidateService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
