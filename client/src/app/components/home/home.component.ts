@@ -6,6 +6,7 @@ import { GetAllService } from '../../services/getall.service';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
+
 export class HomeComponent implements OnInit {
   recipes: any;
   id: any;
@@ -17,6 +18,7 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     this.getAllService.getAll().subscribe(data => {
       this.recipes = data;
+      this.recipes.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
     });
   }
 

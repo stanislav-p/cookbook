@@ -5,6 +5,7 @@
         <div class="recipe">
           <h4 class="name">{{ recipe.name }}</h4>
           <p class="description">{{ recipe.description }}</p>
+          <span class="date">{{ recipe.date  | date: 'dd.MM.yy - HH:mm' }}</span>
          <div class="icons">
            <a [routerLink]="['/edit', recipe._id]">{{ id }} <i class="fa fa-pencil" aria-hidden="true"></i></a>
            <i class="fa fa-book" aria-hidden="true" data-toggle="modal" [attr.data-target]="'#' + recipe._id"></i>
